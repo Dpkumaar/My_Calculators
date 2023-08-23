@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Project Calculetor</title>
+</head>
+<style>
+	*{
+		margin:10px;
+		padding:5px;
+		box-sizing: border-box;
+		text-align: center;
+		background-color:darkgrey;
+        color: #990000;
+	}
+	button{
+
+		background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 100px;
+  		text-decoration: none;
+  		display: inline-block;
+  		margin: 4px 2px;
+  		cursor: pointer;
+	}
+	button:hover {
+             -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+             -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+             -moz-transition: all ease 0.5s;
+             -webkit-transition: all 0.5s ease;
+             transition: all 0.5s ease;
+             -o-transition: all ease 0.5s;
+}
+input{
+      background-color: white;
+      font-size: 25px;
+      font-weight: 30px;
+      border-radius: 8px;
+}
+#calculator{
+            border: solid black 4px;
+            border-radius: 5px;
+            background-color: rgb(255, 77, 166);
+}
+#result{
+        font-size: 20px;
+        font-weight: 30px;
+        background-color: rgb(255, 77, 166);
+}
+  </style>
+
+   <body>
+
+                    <h1>My Calculetor Project</h1>
+                      <h3>&copy Create By Pradeep Kumaar</h3>
+                        <div id="calculator">
+                          <input type="text" id="display" readonly>
+                            <br>
+                            <p id="result"></p>
+                                <button onclick="appendToDisplay('1')">1</button>
+                                <button onclick="appendToDisplay('2')">2</button>
+                                <button onclick="appendToDisplay('3')">3</button>
+                                <button onclick="appendToDisplay('*')">*</button><br>
+                                <button onclick="appendToDisplay('4')">4</button>
+                                <button onclick="appendToDisplay('5')">5</button>
+                                <button onclick="appendToDisplay('6')">6</button>
+                                <button onclick="appendToDisplay('-')">-</button><br>           
+                                <button onclick="appendToDisplay('7')">7</button>
+                                <button onclick="appendToDisplay('8')">8</button>
+                                <button onclick="appendToDisplay('9')">9</button>
+                                <button onclick="appendToDisplay('+')">+</button><br>
+                                <button onclick="clearDisplay()">C</button>
+                                <button onclick="appendToDisplay('0')">0</button>
+                                <button onclick="calculate()">=</button>
+                                <button onclick="appendToDisplay('/')">/</button>
+                             </div>
+            <script>
+                        function appendToDisplay(value) {
+                                    document.getElementById("display").value += value;
+                                }
+
+                             function clearDisplay() {
+                                 document.getElementById("display").value = "";
+                                 document.getElementById("result").textContent = "";
+                                }
+
+                                function calculate() {
+                                 var expression = document.getElementById("display").value;
+                                 try {
+                                     var result = eval(expression);
+                                     document.getElementById("result").textContent = "Result: " + result;
+                                 } catch (error) {
+                                     document.getElementById("result").textContent = "Invalid expression";
+                                 }
+                                }
+            </script>
+</body>
+</html> 
